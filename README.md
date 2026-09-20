@@ -5,10 +5,7 @@ Context and Conditional Diffusion* (Scientific Reports).
 
 The package contains the **data preprocessing scripts**, the **baseline model
 implementations**, the **training and evaluation scripts**, and the **exact
-hyperparameters of every baseline** in the comparison tables. The DiffKT method
-implementation (`bikt_pres.py`, `diff_prelstm_as2.py`, `torch_kt/diff_utils.py`)
-is not part of the deposit; it is subject to institutional intellectual-property
-restrictions, as stated in the Code availability section of the manuscript.
+hyperparameters of every baseline** in the comparison tables.
 
 ---
 
