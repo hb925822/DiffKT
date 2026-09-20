@@ -1,4 +1,4 @@
-# DiffKT — reproducibility package
+# DiffKT
 
 Code accompanying the manuscript *Robust Knowledge Tracing via Bidirectional
 Context and Conditional Diffusion* (Scientific Reports).
