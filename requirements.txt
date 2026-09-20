@@ -1,0 +1,31 @@
+# DiffKT — runtime dependencies
+#
+# Reference environment used for all results reported in the paper:
+#   Python 3.8, PyTorch 2.0.1, CUDA 11.x, single NVIDIA RTX A6000 (48 GB)
+#
+# Install:
+#   python -m pip install -r requirements.txt
+
+# --- core ------------------------------------------------------------------
+torch==2.0.1
+numpy>=1.23
+pandas>=1.5
+scikit-learn>=1.2
+
+# --- optional --------------------------------------------------------------
+# Needed only by the alternative diffusion backbones that are NOT used by
+# DiffKT (torch_kt/diffuser/, torch_kt/share_layers.py, torch_kt/models/dit.py).
+# einops>=0.6
+
+# Needed only for Weights & Biases logging (torch_kt/runner_wandb.py, run.py --remote).
+# wandb>=0.15
+
+# Needed only to run on Huawei Ascend NPUs (run.py --device npu).
+# torch_npu
+
+# The manuscript reports results computed with pykt-tools 1.3.2 for the
+# baseline implementations. That library is now maintained as `pykt`
+# (https://github.com/pykt-team/pykt-toolkit); it is not required by the code
+# in this repository, which ships self-contained baseline implementations
+# under torch_kt/models/.
+# pykt-tools==1.3.2

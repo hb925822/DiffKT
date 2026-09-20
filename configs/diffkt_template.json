@@ -1,0 +1,61 @@
+{
+  "_provenance": {
+    "description": "Stage-2 (DiffKT) hyperparameters. Copy this file, fill in the marked fields, and pass the values on the command line, e.g. `python diff_prelstm_as2.py --data_name assist0910 --diffusion_steps 100 ...`.",
+    "values_source": "Manuscript Section 5.1.3 (Implementation Details and Evaluation Metrics) and the argparse defaults in diff_prelstm_as2.py.",
+    "to_verify": [
+      "diffusion_steps",
+      "beta_start",
+      "beta_end",
+      "noise_schedule",
+      "d_loss",
+      "k_loss"
+    ],
+    "note": "diffusion_steps (S) and the noise-schedule bounds (beta_start, beta_end) were selected by Bayesian search on the held-out 20% tuning partition, over S in {50,100,200,500,1000} and (beta_min, beta_max) in [0.001, 0.8]. Replace the placeholders below with the values actually selected for each dataset. The manuscript recommends S = 100 for deployment."
+  },
+
+  "model": "DiffKT",
+  "variant": "RNN",
+  "data_name": "REPLACE_WITH_DATASET",
+  "kernel": "lstm",
+
+  "max_len": 100,
+  "emb_size": 64,
+  "hidden_size": 128,
+  "dropout": 0.1,
+  "batch_size": 32,
+
+  "optimizer": "Adam",
+  "lr": 0.001,
+  "weight_decay": 0,
+  "max_epochs": 100,
+  "patience": 5,
+  "valid_interval": 1,
+  "seed": 100,
+  "device": "cuda",
+
+  "folds": 5,
+
+  "diffuer": "mlp",
+  "diff_type": "mean",
+  "diffusion_steps": null,
+  "noise_schedule": "fix",
+  "beta_start": null,
+  "beta_end": null,
+  "schedule_sampler_name": "uniform",
+  "rescale_timesteps": false,
+  "lambda_uncertainty": 0.0,
+
+  "d_loss": 1.0,
+  "k_loss": 1.0,
+
+  "wo_step": false,
+  "wo_normal": false,
+  "wo_kloss": false,
+
+  "_ablation_notes": {
+    "wo_step": "true removes the diffusion-step embedding",
+    "wo_normal": "true removes the LayerNorm pair in the denoising network",
+    "wo_kloss": "true removes the KT prediction loss (d_loss-only objective)",
+    "diff_type": "set to \"noise\" to reproduce the eps_theta collapse reported in the denoising-target analysis"
+  }
+}

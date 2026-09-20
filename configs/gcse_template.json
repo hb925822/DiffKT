@@ -1,0 +1,30 @@
+{
+  "_provenance": {
+    "description": "Stage-1 (GCSE pre-training) hyperparameters.",
+    "values_source": "Manuscript Section 5.1.3 and the argparse defaults in bikt_pres.py.",
+    "note": "Run once per dataset. With --all_data the estimator is also trained on the validation and test partitions, which is how the released checkpoints (pretrain_model/BiktPreS_<dataset>_all.pth) were produced. The resulting checkpoint is loaded by Stage 2 via --model_path and frozen."
+  },
+
+  "model": "BiktPreS",
+  "data_name": "REPLACE_WITH_DATASET",
+
+  "max_len": 100,
+  "emb_size": 128,
+  "hidden_units": 128,
+  "dropout": 0.1,
+  "batch_size": 32,
+
+  "optimizer": "Adam",
+  "lr": 0.001,
+  "weight_decay": 0,
+  "max_epochs": 100,
+  "patience": 5,
+  "valid_interval": 1,
+  "device": "cuda",
+
+  "all_data": true,
+  "use_smooth": false,
+  "save": true,
+
+  "_output": "pretrain_model/BiktPreS_<data_name>_all.pth"
+}

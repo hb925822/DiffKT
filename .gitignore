@@ -1,0 +1,27 @@
+# --- Python -----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.venv/
+venv/
+
+# --- experiment artefacts ---------------------------------------------------
+logs/
+predict_result/
+pretrain_model/
+checkpoints/
+*.pth
+*.pt
+
+# --- datasets ---------------------------------------------------------------
+# Preprocessed datasets are rebuilt from the public raw files by
+# torch_kt/preprocesss/*.py and must not be committed.
+data/
+*.pkl
+
+# --- editor / OS ------------------------------------------------------------
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
